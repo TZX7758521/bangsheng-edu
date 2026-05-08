@@ -7,13 +7,9 @@
     <style>
         body { margin: 0; font-family: 'Microsoft YaHei', sans-serif; color: #333; }
         
-        /* 修改了 header 的排版，使其居中对齐 */
+        /* 头部排版 */
         header { background-color: #0056b3; color: white; padding: 30px 0; display: flex; flex-direction: column; align-items: center; }
-        
-        /* 标题居中、放大字号、增加字间距使其更加醒目 */
         header h1 { margin: 0 0 20px 0; font-size: 40px; letter-spacing: 4px; }
-        
-        /* 导航栏居中平铺 */
         nav { display: flex; gap: 30px; }
         nav a { color: white; text-decoration: none; font-weight: bold; font-size: 16px; }
         nav a:hover { text-decoration: underline; }
@@ -22,30 +18,34 @@
         .hero h2 { font-size: 36px; color: #0056b3; margin-bottom: 20px; }
         .hero p { font-size: 18px; color: #555; margin-bottom: 30px; }
         .btn { background-color: #ff9900; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; font-weight: bold; }
+        
         .features { display: flex; justify-content: space-around; padding: 50px; background-color: white; text-align: center; }
         .feature-item { width: 30%; }
         .feature-item h3 { color: #0056b3; font-size: 24px;}
-        .campuses { background-color: #f9f9f9; padding: 50px; text-align: center; }
-        footer { background-color: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; }
-    </style>
-    /* 预约表单样式 */
+        
+        /* 预约表单样式 - 已经放在了正确的 style 标签内 */
         .booking-section { background-color: #f1f8ff; padding: 60px 20px; text-align: center; }
-        .booking-section h2 { color: #0056b3; font-size: 32px; margin-bottom: 30px; }
-        .booking-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+        .booking-section h2 { color: #0056b3; font-size: 32px; margin-bottom: 10px; }
+        .booking-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; text-align: left; }
         .form-row { display: flex; gap: 15px; }
         .form-row > * { flex: 1; }
         .booking-form input, .booking-form select { 
-            padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-family: inherit;
+            padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-family: inherit; width: 100%;
         }
         .submit-btn { 
-            background-color: #ff9900; color: white; border: none; padding: 15px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.3s; 
+            background-color: #ff9900; color: white; border: none; padding: 15px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.3s; margin-top: 10px;
         }
         .submit-btn:hover { background-color: #e68a00; }
         
-        /* 手机端适配：屏幕变小的时候，让并排的输入框变成上下排列 */
         @media (max-width: 600px) {
             .form-row { flex-direction: column; gap: 15px; }
+            .features { flex-direction: column; align-items: center; }
+            .feature-item { width: 90%; margin-bottom: 30px; }
         }
+
+        .campuses { background-color: #f9f9f9; padding: 50px; text-align: center; }
+        footer { background-color: #333; color: white; text-align: center; padding: 20px; }
+    </style>
 </head>
 <body>
 
@@ -80,11 +80,12 @@
             <p>全职专业教师，个性化辅导方案，查漏补缺，助力学子冲刺理想名校。</p>
         </div>
     </div>
+
     <div class="booking-section" id="booking">
         <h2>预约免费试听评估</h2>
-        <p style="margin-bottom: 20px; color: #666;">请填写下方信息，我们的专业课程顾问将尽快与您联系安排试听。</p>
+        <p style="margin-bottom: 30px; color: #666;">请填写下方信息，我们的专业课程顾问将尽快与您联系安排试听。</p>
         
-        <form action="https://formspree.io/f/你的专属代码" method="POST" class="booking-form">
+        <form action="https://formspree.io/f/替换成你的专属代码" method="POST" class="booking-form">
             
             <div class="form-row">
                 <input type="text" name="学生姓名" placeholder="请输入学生姓名" required>
