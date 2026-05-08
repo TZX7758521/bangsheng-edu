@@ -28,6 +28,24 @@
         .campuses { background-color: #f9f9f9; padding: 50px; text-align: center; }
         footer { background-color: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; }
     </style>
+    /* 预约表单样式 */
+        .booking-section { background-color: #f1f8ff; padding: 60px 20px; text-align: center; }
+        .booking-section h2 { color: #0056b3; font-size: 32px; margin-bottom: 30px; }
+        .booking-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+        .form-row { display: flex; gap: 15px; }
+        .form-row > * { flex: 1; }
+        .booking-form input, .booking-form select { 
+            padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-family: inherit;
+        }
+        .submit-btn { 
+            background-color: #ff9900; color: white; border: none; padding: 15px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.3s; 
+        }
+        .submit-btn:hover { background-color: #e68a00; }
+        
+        /* 手机端适配：屏幕变小的时候，让并排的输入框变成上下排列 */
+        @media (max-width: 600px) {
+            .form-row { flex-direction: column; gap: 15px; }
+        }
 </head>
 <body>
 
@@ -45,7 +63,7 @@
     <div class="hero">
         <h2>深耕临沂，成就未来</h2>
         <p>专注初高中学科辅导 | 始于2019年 | 临沂11家直营校区覆盖</p>
-        <a href="#" class="btn">预约免费试听评估</a>
+        <a href="#booking" class="btn">预约免费试听评估</a>
     </div>
 
     <div class="features">
@@ -61,6 +79,46 @@
             <h3>严选师资团队</h3>
             <p>全职专业教师，个性化辅导方案，查漏补缺，助力学子冲刺理想名校。</p>
         </div>
+    </div>
+    <div class="booking-section" id="booking">
+        <h2>预约免费试听评估</h2>
+        <p style="margin-bottom: 20px; color: #666;">请填写下方信息，我们的专业课程顾问将尽快与您联系安排试听。</p>
+        
+        <form action="https://formspree.io/f/你的专属代码" method="POST" class="booking-form">
+            
+            <div class="form-row">
+                <input type="text" name="学生姓名" placeholder="请输入学生姓名" required>
+                <input type="tel" name="联系电话" placeholder="请输入家长手机号码" required pattern="[0-9]{11}" title="请输入11位手机号码">
+            </div>
+
+            <div class="form-row">
+                <select name="意向校区" required>
+                    <option value="" disabled selected>请选择就近校区</option>
+                    <option value="兰山总校区">兰山区 - 总校区</option>
+                    <option value="北城新区校区">北城新区校区</option>
+                    <option value="罗庄校区">罗庄区校区</option>
+                    <option value="河东校区">河东区校区</option>
+                    <option value="其他区域(待沟通校区)">其他区域 (稍后客服沟通安排)</option>
+                </select>
+
+                <select name="辅导科目" required>
+                    <option value="" disabled selected>请选择辅导科目</option>
+                    <option value="语文">语文</option>
+                    <option value="数学">数学</option>
+                    <option value="英语">英语</option>
+                    <option value="物理">物理</option>
+                    <option value="化学">化学</option>
+                    <option value="生物">生物</option>
+                    <option value="地理">地理</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <input type="datetime-local" name="期望试听时间" required>
+            </div>
+
+            <button type="submit" class="submit-btn">提交预约信息</button>
+        </form>
     </div>
 
     <div class="campuses">
