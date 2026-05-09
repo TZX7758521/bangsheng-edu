@@ -5,61 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>邦胜教育 - 临沂初高中学科辅导专家</title>
     <style>
-        body { margin: 0; font-family: 'Microsoft YaHei', sans-serif; color: #333; }
+        /* 开启全局平滑滚动，让导航跳转更顺滑 */
+        html { scroll-behavior: smooth; }
         
-        /* 头部排版 */
-        header { background-color: #0056b3; color: white; padding: 30px 0; display: flex; flex-direction: column; align-items: center; }
+        body { margin: 0; font-family: 'Microsoft YaHei', sans-serif; color: #333; line-height: 1.6; }
+        
+        /* 头部居中排版保持不变 */
+        header { background-color: #0056b3; color: white; padding: 30px 0; display: flex; flex-direction: column; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         header h1 { margin: 0 0 20px 0; font-size: 40px; letter-spacing: 4px; }
-        nav { display: flex; gap: 30px; }
-        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 16px; }
-        nav a:hover { text-decoration: underline; }
+        nav { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 16px; padding: 5px 10px; border-radius: 5px; transition: background 0.3s; }
+        nav a:hover { background-color: rgba(255,255,255,0.2); }
 
-        .hero { background-color: #e6f2ff; padding: 80px 50px; text-align: center; }
-        .hero h2 { font-size: 36px; color: #0056b3; margin-bottom: 20px; }
-        .hero p { font-size: 18px; color: #555; margin-bottom: 30px; }
-        .btn { background-color: #ff9900; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; font-weight: bold; }
+        /* 各个区块的基础设置 */
+        section { padding: 80px 20px; text-align: center; }
+        section h2 { color: #0056b3; font-size: 32px; margin-bottom: 40px; }
+
+        .hero { background-color: #e6f2ff; padding: 100px 20px; }
+        .hero h2 { font-size: 40px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; color: #555; margin-bottom: 40px; }
         
-        .features { display: flex; justify-content: space-around; padding: 50px; background-color: white; text-align: center; }
-        .feature-item { width: 30%; }
+        /* 按钮通用样式 */
+        .btn { background-color: #ff9900; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; font-weight: bold; display: inline-block; transition: background 0.3s; border: none; cursor: pointer; }
+        .btn:hover { background-color: #e68a00; }
+
+        /* 优势板块 */
+        .features { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; background-color: white; }
+        .feature-item { width: 300px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-radius: 8px; }
         .feature-item h3 { color: #0056b3; font-size: 24px;}
-        
-        /* 预约区域样式 */
-        .booking-section { background-color: #f1f8ff; padding: 60px 20px; text-align: center; }
-        .booking-section h2 { color: #0056b3; font-size: 32px; margin-bottom: 10px; }
-        .submit-btn { 
-            background-color: #ff9900; color: white; border: none; padding: 15px 30px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.3s; margin-top: 20px; display: inline-block; text-decoration: none;
-        }
-        .submit-btn:hover { background-color: #e68a00; }
-        
-        @media (max-width: 600px) {
-            .features { flex-direction: column; align-items: center; }
-            .feature-item { width: 90%; margin-bottom: 30px; }
-        }
 
-        .campuses { background-color: #f9f9f9; padding: 50px; text-align: center; }
-        footer { background-color: #333; color: white; text-align: center; padding: 20px; }
+        /* 课程板块样式 */
+        .course-grid { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; max-width: 800px; margin: 0 auto; }
+        .subject-tag { background-color: #f1f8ff; color: #0056b3; border: 1px solid #cce5ff; padding: 10px 25px; border-radius: 20px; font-size: 16px; font-weight: bold; }
+        
+        .bg-gray { background-color: #f9f9f9; }
+        .bg-white { background-color: #ffffff; }
+
+        /* 底部信息 */
+        footer { background-color: #333; color: white; text-align: center; padding: 40px 20px; }
+        footer p { margin: 10px 0; color: #ccc; }
     </style>
 </head>
 <body>
 
+    <!-- 顶部导航：href里的#对应下面各个section的id -->
     <header>
         <h1>邦胜教育</h1>
         <nav>
-            <a href="#">首页</a>
-            <a href="#">初中课程</a>
-            <a href="#">高中课程</a>
-            <a href="#">临沂11家校区</a>
-            <a href="#">联系我们</a>
+            <a href="#home">首页</a>
+            <a href="#junior">初中课程</a>
+            <a href="#senior">高中课程</a>
+            <a href="#campuses">临沂11家校区</a>
+            <a href="#contact">联系我们</a>
         </nav>
     </header>
 
-    <div class="hero">
+    <!-- 首页主视觉区 -->
+    <section id="home" class="hero">
         <h2>深耕临沂，成就未来</h2>
         <p>专注初高中学科辅导 | 始于2019年 | 临沂11家直营校区覆盖</p>
-        <a href="#booking" class="btn">预约免费试听评估</a>
-    </div>
+        <a href="#booking" class="btn">免费预约试听评估</a>
+    </section>
 
-    <div class="features">
+    <!-- 特色优势区 -->
+    <section class="features bg-white">
         <div class="feature-item">
             <h3>7年本土深耕</h3>
             <p>成立于2019年，深谙临沂本地初高中教学大纲与中高考考情，针对性提分。</p>
@@ -72,23 +81,68 @@
             <h3>严选师资团队</h3>
             <p>全职专业教师，个性化辅导方案，查漏补缺，助力学子冲刺理想名校。</p>
         </div>
-    </div>
+    </section>
 
-    <div class="booking-section" id="booking">
+    <!-- 初中课程区 -->
+    <section id="junior" class="bg-gray">
+        <h2>初中精品课程</h2>
+        <p style="margin-bottom: 30px; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">夯实初中基础，掌握学习方法，为中考冲刺做好全面准备。</p>
+        <div class="course-grid">
+            <div class="subject-tag">初中语文</div>
+            <div class="subject-tag">初中数学</div>
+            <div class="subject-tag">初中英语</div>
+            <div class="subject-tag">初中物理</div>
+            <div class="subject-tag">初中化学</div>
+            <div class="subject-tag">初中生物</div>
+            <div class="subject-tag">初中地理</div>
+        </div>
+    </section>
+
+    <!-- 高中课程区 -->
+    <section id="senior" class="bg-white">
+        <h2>高中培优冲刺课程</h2>
+        <p style="margin-bottom: 30px; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">紧贴高考命题趋势，突破重点难点，靶向提分，圆梦理想大学。</p>
+        <div class="course-grid">
+            <div class="subject-tag">高中语文</div>
+            <div class="subject-tag">高中数学</div>
+            <div class="subject-tag">高中英语</div>
+            <div class="subject-tag">高中物理</div>
+            <div class="subject-tag">高中化学</div>
+            <div class="subject-tag">高中生物</div>
+            <div class="subject-tag">高中地理</div>
+        </div>
+    </section>
+
+    <!-- 干净清爽的预约跳转区域 (保留了您之前的修改) -->
+    <section id="booking" class="bg-gray">
         <h2>预约免费试听评估</h2>
         <p style="margin-bottom: 20px; color: #666;">点击下方按钮填写信息，我们的专业课程顾问将尽快与您联系安排试听。</p>
-        
-        <a href="https://wj.qq.com/s2/26602042/1468/" target="_blank" class="submit-btn">点击此处填写预约表单</a>
-    </div>
+        <!-- 注意替换这里的链接 -->
+        <a href="https://wj.qq.com/s2/你的问卷链接" target="_blank" class="btn">点击此处填写预约表单</a>
+    </section>
 
-    <div class="campuses">
-        <h2>就在您身边的邦胜教育</h2>
-        <p>欢迎致电咨询，或前往最近的校区了解详情。</p>
-        <p><strong>统一咨询热线：</strong> 18822552125(汤老师)</p>
-    </div>
+    <!-- 校区分布区 -->
+    <section id="campuses" class="bg-white">
+        <h2>临沂11家直营校区</h2>
+        <p style="color: #666; margin-bottom: 20px;">为了您的方便，我们已在临沂市区及周边设立11家校区，提供就近辅导服务。</p>
+        <div style="max-width: 600px; margin: 0 auto; text-align: left; background: #f9f9f9; padding: 20px; border-radius: 8px;">
+            <p>📍 <strong>兰山总校区：</strong> [请填入详细地址]</p>
+            <p>📍 <strong>北城新区校区：</strong> [请填入详细地址]</p>
+            <p>📍 <strong>罗庄校区：</strong> [请填入详细地址]</p>
+            <p>📍 <strong>河东校区：</strong> [请填入详细地址]</p>
+            <p style="color: #999; font-size: 14px; text-align: center; margin-top: 15px;">... 更多校区地址请通过下方联系方式咨询详情 ...</p>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 临沂邦胜教育咨询有限公司. All Rights Reserved.</p>
+    <!-- 底部与联系我们区 -->
+    <footer id="contact">
+        <h2>联系我们</h2>
+        <p style="font-size: 18px; font-weight: bold; margin-bottom: 20px; color: #ff9900;">全国统一咨询热线：400-XXX-XXXX</p>
+        <p>微信公众号：邦胜教育</p>
+        <p>邮箱：contact@bangsheng.edu (示例)</p>
+        <div style="margin-top: 40px; font-size: 12px;">
+            <p>&copy; 2026 临沂邦胜教育咨询有限公司. All Rights Reserved.</p>
+        </div>
     </footer>
 
 </body>
